@@ -1,4 +1,4 @@
-import { Component, computed, Input, input, ɵINPUT_SIGNAL_BRAND_WRITE_TYPE } from '@angular/core';
+import { Component, computed, EventEmitter, Input, input, Output, output } from '@angular/core';
 
 @Component({
   selector: 'app-user',
@@ -11,8 +11,10 @@ export class UserComponent {
   // @Input({required: true}) avatar!: string;
   // @Input({required: true}) name!: string;
 
+  @Input({required: true}) id!: string;
   avatar = input.required<string>();
   name = input.required<string>();
+  @Output() select = new EventEmitter();
 
   imagePath = computed(() => 'assets/users/' + this.avatar());
   // get imagePath() {
@@ -22,6 +24,6 @@ export class UserComponent {
 
  
   onSelectUser(){
-    
+    this.select.emit(this.id);
   }
 }
