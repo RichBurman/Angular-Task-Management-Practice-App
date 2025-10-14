@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, output } from '@angular/core';
 
 @Component({
   selector: 'app-new-task',
@@ -9,6 +9,8 @@ import { Component } from '@angular/core';
 })
 export class NewTaskComponent {
 
-  
-
+  cancel = output<void>();
+  onCancel() {
+    this.cancel.emit();
+  }
 }
