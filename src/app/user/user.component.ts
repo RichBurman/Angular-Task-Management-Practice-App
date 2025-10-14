@@ -8,11 +8,7 @@ import {
   output,
 } from '@angular/core';
 
-interface User {
-  id: string;
-  name: string;
-  avatar: string;
-}
+import { User } from './user.model';
 
 @Component({
   selector: 'app-user',
